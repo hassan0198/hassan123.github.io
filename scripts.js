@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // GSAP animations for sections
+    gsap.registerPlugin(ScrollTrigger);
     const sections = document.querySelectorAll('.menu-section, .contact-section');
     sections.forEach(section => {
         gsap.from(section, {
