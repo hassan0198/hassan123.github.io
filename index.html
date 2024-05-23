@@ -1,0 +1,143 @@
+/* Add this to the top of your CSS file */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js');
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header {
+    background-color: #ff7f50;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffebcd;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('image.png') no-repeat center center/cover;
+    position: relative;
+}
+
+.hero .hero-image {
+    max-width: 80%;
+    max-height: 80%;
+    animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.menu-section {
+    padding: 5rem 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.menu-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.menu-item {
+    background: #f9f9f9;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.contact-section {
+    padding: 5rem 2rem;
+    background-color: #ffebcd;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-section form {
+    background: #fff;
+    padding: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.contact-section form input,
+.contact-section form textarea,
+.contact-section form button {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-section form button {
+    background-color: #ff7f50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-section form button:hover {
+    background-color: #e57350;
+}
+
+footer {
+    background-color: #333;
+    color:
