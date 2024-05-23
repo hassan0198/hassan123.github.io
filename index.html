@@ -1,134 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicious Desserts</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <h1>Welcome to Delicious Desserts</h1>
-            <p>Symphony of Flavours</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#shakes">Shakes</a></li>
-                <li><a href="#twisters">Twisters</a></li>
-                <li><a href="#sundaes">Sundaes</a></li>
-                <li><a href="#swirls">Swirls</a></li>
-                <li><a href="#brownies">Brownies</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector(link.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 
-    <section id="home" class="hero">
-        <img src="image.png" alt="Ice Cream Image" class="hero-image">
-    </section>
+    // GSAP animations for sections
+    gsap.registerPlugin(ScrollTrigger);
+    const sections = document.querySelectorAll('.menu-section, .contact-section');
+    sections.forEach(section => {
+        gsap.from(section, {
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none none",
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1
+        });
+    });
 
-    <section id="shakes" class="menu-section">
-        <h2>Our Shakes</h2>
-        <div class="menu-item">
-            <h3>Oreo Shake</h3>
-            <p>Creamy and crunchy Oreo blend.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Chocolate Shake</h3>
-            <p>Rich and smooth chocolate shake.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Banana Shake</h3>
-            <p>Refreshing and sweet banana shake.</p>
-        </div>
-    </section>
+    // GSAP animation for header content
+    gsap.from('.header-content', {
+        opacity: 0,
+        y: -50,
+        duration: 1.5,
+        delay: 0.5
+    });
 
-    <section id="twisters" class="menu-section">
-        <h2>Our Twisters</h2>
-        <div class="menu-item">
-            <h3>Berry Twister</h3>
-            <p>Berry mix with a twist.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Mango Twister</h3>
-            <p>Tropical mango delight.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Green Twister</h3>
-            <p>Healthy greens with a fruity twist.</p>
-        </div>
-    </section>
+    // GSAP animation for hero image
+    gsap.from('.hero-image', {
+        opacity: 0,
+        scale: 0.8,
+        duration: 2,
+        delay: 1
+    });
 
-    <section id="sundaes" class="menu-section">
-        <h2>Our Sundaes</h2>
-        <div class="menu-item">
-            <h3>Chocolate Sundae</h3>
-            <p>Rich chocolate with creamy ice cream.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Strawberry Sundae</h3>
-            <p>Fresh strawberries and ice cream.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Vanilla Sundae</h3>
-            <p>Classic vanilla with a twist.</p>
-        </div>
-    </section>
-
-    <section id="swirls" class="menu-section">
-        <h2>Our Swirls</h2>
-        <div class="menu-item">
-            <h3>Chocolate Swirl</h3>
-            <p>A rich and creamy chocolate delight.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Vanilla Dream</h3>
-            <p>A classic vanilla flavor with a smooth texture.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Strawberry Blast</h3>
-            <p>Sweet and tangy strawberry goodness.</p>
-        </div>
-    </section>
-
-    <section id="brownies" class="menu-section">
-        <h2>Our Brownies</h2>
-        <div class="menu-item">
-            <h3>Chocolate Brownie</h3>
-            <p>Rich and fudgy chocolate brownie.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Nutty Brownie</h3>
-            <p>Delicious brownie with nuts.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Cheesecake Brownie</h3>
-            <p>Brownie with a cheesecake twist.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <h2>Contact Us</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Delicious Desserts. All rights reserved.</p>
-    </footer>
-
-    <script src="scripts.js"></script>
-</body>
-</html>
+    // Interactive hover effect for menu items
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            gsap.to(item, {
+                scale: 1.05,
+                duration: 0.3
+            });
+        });
+        item.addEventListener('mouseout', () => {
+            gsap.to(item, {
+                scale: 1,
+                duration: 0.3
+            });
+        });
+    });
+});
